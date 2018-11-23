@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.1">
+       <id>Xam.Plugins.Vibrate</id>
+       <version>2.0.0</version>
+       <title>Vibrate Plugin for Xamarin and Windows</title>
+       <authors>Test</authors>
+       <owners>Test</owners>
+       <licenseUrl>test</licenseUrl>
+       <projectUrl>test</projectUrl>
+       <iconUrl>test</iconUrl>
+       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <description>
+         Xamarin and Windows plugin to vibrate your devices. 
+         Read the full documentation on the projects page.
+       </description>
+       <summary>
+         Xamarin and Windows plugin to vibrate your device.
+       </summary>
+       <tags>xamarin, xamarin.forms, android, ios, windows phone, vibrate</tags>
+   </metadata>
+   <files>
+     <!--Xamarin.iOS-->
+     <file src="..\XBottomSheet\bin\iPhone\Release\Plugin.Vibrate.dll" target="lib\XBottomSheet.Touch.dll" />
+     <file src="..\XBottomSheet\bin\iPhone\Release\Plugin.Vibrate.xml" target="lib\XBottomSheet.Touch.xml" />
+   </files>
+</package>
