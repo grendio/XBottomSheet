@@ -7,11 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Touch", "XBott
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Droid", "XBottomSheet.Droid\XBottomSheet.Droid.csproj", "{399F614B-63AB-4BF8-9192-A7F9B92EFB33}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4DD2E7A4-0844-4265-BDE4-C6F6CCF55915}"
-	ProjectSection(SolutionItems) = preProject
-		xbottomsheet.nuspec = xbottomsheet.nuspec
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Touch.Sample", "XBottomSheet.Samples\XBottomSheet.Touch\XBottomSheet.Touch.Sample.csproj", "{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}"
 EndProject
 Global
