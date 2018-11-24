@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Touch", "XBott
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Droid", "XBottomSheet.Droid\XBottomSheet.Droid.csproj", "{399F614B-63AB-4BF8-9192-A7F9B92EFB33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Touch.Sample", "XBottomSheet.Touch.Sample\XBottomSheet.Touch.Sample.csproj", "{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,18 @@ Global
 		{399F614B-63AB-4BF8-9192-A7F9B92EFB33}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{399F614B-63AB-4BF8-9192-A7F9B92EFB33}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{399F614B-63AB-4BF8-9192-A7F9B92EFB33}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Debug|iPhone.Build.0 = Debug|iPhone
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Release|Any CPU.Build.0 = Release|iPhone
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Release|iPhone.ActiveCfg = Release|iPhone
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Release|iPhone.Build.0 = Release|iPhone
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{7E900F6F-7BB6-4BE7-90BD-E07BDF35C856}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
