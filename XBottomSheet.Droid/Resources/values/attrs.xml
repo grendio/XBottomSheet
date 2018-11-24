@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<declare-styleable name="XBottomSheet">
+  <attr name="enabled" format="boolean" />
+</declare-styleable>

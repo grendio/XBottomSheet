@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:local="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<View
+		android:layout_weight="1"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"/>
+	<Button
+		android:layout_width="100dp"
+		android:layout_height="50dp"/>
+<XBottomSheetView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+	<android.support.v4.widget.NestedScrollView
+		android:id="@+id/bottomSheet"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@android:color/holo_blue_light"
+		android:clickable="true">
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:padding="16dp"
+			android:textSize="16sp"
+			android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id blandit metus, id ultrices ipsum. Praesent dapibus mauris eget facilisis lobortis. Vestibulum et tristique erat. Sed dictum est eu enim molestie, id pellentesque lorem tempor. Aliquam fringilla ex odio, eu sollicitudin massa iaculis at. In mollis, orci vitae maximus consectetur, neque massa cursus leo, quis finibus metus justo eu elit. Maecenas quis nunc sed nisl feugiat bibendum id non dolor. Nullam bibendum augue non enim volutpat, quis imperdiet augue lobortis.">
+		</TextView>
+	</android.support.v4.widget.NestedScrollView>
+</XBottomSheetView>
+</LinearLayout>
