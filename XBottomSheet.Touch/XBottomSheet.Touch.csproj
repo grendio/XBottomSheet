@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -9,6 +10,17 @@
     <RootNamespace>XBottomSheet.Touch</RootNamespace>
     <AssemblyName>XBottomSheet.Touch</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>XBottomSheet.iOS</PackageId>
+    <PackageVersion>0.0.2</PackageVersion>
+    <Authors>Grendio</Authors>
+    <PackageIconUrl>https://avatars1.githubusercontent.com/u/45300196</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/grendio/XBottomSheet/blob/master/LICENSE</PackageLicenseUrl>
+    <Owners>Grendio</Owners>
+    <PackageProjectUrl>https://github.com/grendio/XBottomSheet</PackageProjectUrl>
+    <Summary>BottomSheet control for Xamarin.iOS</Summary>
+    <Title>XBottomSheet.iOS</Title>
+    <Description>BottomSheet control for Xamarin.iOS</Description>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -91,29 +103,20 @@
     <ImageAsset Include="Assets.xcassets\Contents.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Views\SampleStoryboard.storyboard" />
     <InterfaceDefinition Include="Views\BottomSheetViewController.xib" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="Views\SampleViewController.cs" />
-    <Compile Include="Views\SampleViewController.designer.cs">
-      <DependentUpon>SampleViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\BottomSheetViewController.cs" />
     <Compile Include="Views\BottomSheetViewController.designer.cs">
       <DependentUpon>BottomSheetViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets')" />
 </Project>
