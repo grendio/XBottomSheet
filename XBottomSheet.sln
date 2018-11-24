@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Touch", "XBottomSheet.Touch\XBottomSheet.Touch.csproj", "{138DBB7C-62F4-4455-8E05-3D6DE059AD5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Droid", "PersistentBottomSheet.Droid\XBottomSheet.Droid.csproj", "{399F614B-63AB-4BF8-9192-A7F9B92EFB33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Droid", "XBottomSheet.Droid\XBottomSheet.Droid.csproj", "{399F614B-63AB-4BF8-9192-A7F9B92EFB33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
