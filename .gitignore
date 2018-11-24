@@ -1,4 +1,6 @@
-XBottomSheet.Touch/bin/*
+XBottomSheet.Touch/bin/iPhoneSimulator/Debug/*
+XBottomSheet.Touch/bin/iPhoneSimulator/Release/*
+!XBottomSheet.Touch/bin/iPhoneSimulator/Debug/XBottomSheet.iOS.0.0.2.nupkg
 XBottomSheet.Touch/obj/*
 .vs/*
 XBottomSheet.Droid/bin/*
@@ -6,5 +8,5 @@ XBottomSheet.Droid/obj/*
 XBottomSheet.Droid/Resources/Resource.Designer.cs
 XBottomSheet.Droid/XBottomSheet.Droid.csproj.user
 XBottomSheet.Touch/XBottomSheet.Touch.csproj.user
-XBottomSheet.Touch.Sample/bin/*
-XBottomSheet.Touch.Sample/obj/*
+XBottomSheet.Samples/XBottomSheet.Touch/bin/*
+XBottomSheet.Samples/XBottomSheet.Touch/obj/*
