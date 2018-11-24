@@ -102,7 +102,6 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="xbottomsheet.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
