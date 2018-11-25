@@ -6,17 +6,39 @@ namespace XBottomSheet.Touch.Views
 {
     public partial class BottomSheetViewController : UIViewController
     {
-        float fullView = 100;
-        nfloat partialView
+        private readonly nfloat top;
+        private readonly nfloat middle;
+        private readonly nfloat bottom;
+        private readonly bool animatedAppearance;
+
+        private BottomSheetState currentState;
+
+        /// <summary>
+        /// This will create a new UIViewController that will behave as a BottomSheet control. As it will have the bottom stop point, there won't be autohide available. In order to have autohide, use the constructor without bottom parrameter.
+        /// </summary>
+        /// <param name="top">Top point for the control to expand to.</param>
+        /// <param name="middle">Middle point where control will stop. This can be used as default state as well.</param>
+        /// <param name="bottom">Point where controll will stay as expanded at the bottom of the screen.</param>
+        /// <param name="animatedAppearance">Specify if control should appear animated.</param>
+        public BottomSheetViewController(nfloat top, nfloat middle, nfloat bottom, bool animatedAppearance = true) : base("BottomSheetViewController", null)
         {
-            get
-            {
-                return UIScreen.MainScreen.Bounds.Height - UIApplication.SharedApplication.StatusBarFrame.Height;
-            }
+            this.top = top;
+            this.middle = middle;
+            this.bottom = bottom;
+            this.animatedAppearance = animatedAppearance;
         }
 
-        public BottomSheetViewController() : base("BottomSheetViewController", null)
+        /// <summary>
+        /// This will create a new UIViewController that will behave as a BottomSheet control. Autohide is on as the bottom point is not provided.
+        /// </summary>
+        /// <param name="top">Top point for the control to expand to.</param>
+        /// <param name="middle">Middle point where control will stop. This can be used as default state as well.</param>
+        /// <param name="animatedAppearance">Specify if control should appear animated.</param>
+        public BottomSheetViewController(nfloat top, nfloat middle, bool animatedAppearance = true) : base("BottomSheetViewController", null)
         {
+            this.top = top;
+            this.middle = middle;
+            this.animatedAppearance = animatedAppearance;
         }
 
         public override void ViewDidLoad()
@@ -37,11 +59,14 @@ namespace XBottomSheet.Touch.Views
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
-            //UIView.animateAnimateWithDuration(0.3) { [weak self] in
-            var frame = this?.View.Frame;
-            var yComponent = UIScreen.MainScreen.Bounds.Height - 200;
-            View.Frame = new CGRect(0, yComponent, frame.Value.Width, frame.Value.Height);
-            //}
+            if (animatedAppearance)
+                UIView.Animate(0.3, 0.0, UIViewAnimationOptions.AllowUserInteraction, () =>
+                {
+                    View.Frame = new CGRect(0, middle, View.Frame.Width, View.Frame.Height);
+                }, null);
+            else
+                View.Frame = new CGRect(0, middle, View.Frame.Width, View.Frame.Height);
+            currentState = BottomSheetState.Middle;
         }
 
         private void PanGesture(UIPanGestureRecognizer recognizer)
@@ -52,7 +77,7 @@ namespace XBottomSheet.Touch.Views
             recognizer.SetTranslation(CGPoint.Empty, View);
 
             var velocity = recognizer.VelocityInView(View);
-            if ((y + translation.Y >= fullView) & (y + translation.Y <= partialView))
+            if ((y + translation.Y >= top) & (y + translation.Y <= middle))
             {
                 View.Frame = new CGRect(0, y + translation.Y, View.Frame.Width, View.Frame.Height);
                 recognizer.SetTranslation(CGPoint.Empty, View);
@@ -60,23 +85,40 @@ namespace XBottomSheet.Touch.Views
 
             if (recognizer.State == UIGestureRecognizerState.Ended)
             {
-                var duration = velocity.Y < 0 ? ((y - fullView) / -velocity.Y) : ((partialView - y) / velocity.Y);
+                var duration = velocity.Y < 0 ? ((y - top) / -velocity.Y) : ((middle - y) / velocity.Y);
                 duration = duration > 1.3 ? 1 : duration;
 
                 UIView.Animate(duration, 0.0, UIViewAnimationOptions.AllowUserInteraction, () =>
                 {
                     if (velocity.Y >= 0)
                     {
-                        View.Frame = new CGRect(0, partialView, View.Frame.Width, View.Frame.Height);
+                        if (currentState == BottomSheetState.Top)
+                        {
+                            View.Frame = new CGRect(0, middle, View.Frame.Width, View.Frame.Height);
+                            currentState = BottomSheetState.Middle;
+                        }
+                        else
+                        {
+                            View.Frame = new CGRect(0, bottom, View.Frame.Width, View.Frame.Height);
+                            currentState = BottomSheetState.Bottom;
+                        }
                     }
                     else
                     {
-                        View.Frame = new CGRect(0, fullView, View.Frame.Width, View.Frame.Height);
+                        if (currentState == BottomSheetState.Bottom)
+                        {
+                            View.Frame = new CGRect(0, middle, View.Frame.Width, View.Frame.Height);
+                            currentState = BottomSheetState.Middle;
+                        }
+                        else
+                        {
+                            View.Frame = new CGRect(0, top, View.Frame.Width, View.Frame.Height);
+                            currentState = BottomSheetState.Top;
+                        }
                     }
                 }, null);
             }
         }
-
 
         private void PrepareBackgroundView()
         {

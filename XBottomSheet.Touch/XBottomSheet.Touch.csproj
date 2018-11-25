@@ -113,6 +113,7 @@
     <Compile Include="Views\BottomSheetViewController.designer.cs">
       <DependentUpon>BottomSheetViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="BottomSheetState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
