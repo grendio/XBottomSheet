@@ -17,29 +17,27 @@ namespace XBottomSheet.Touch.Sample
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
             SetupBottomSheet();
         }
 
         private void SetupBottomSheet()
         {
-            // 1- Init bottomSheetVC
-            bottomSheetViewController = new BottomSheetViewController();
+            // Create BottomSheetViewController
+            var bottom = UIScreen.MainScreen.Bounds.Height - UIApplication.SharedApplication.StatusBarFrame.Height;
+            bottomSheetViewController = new BottomSheetViewController(100, 300, bottom);
 
-            // 2- Add bottomSheetVC as a child view 
+            // Add BottomSheetViewController as a child view 
             this.AddChildViewController(bottomSheetViewController);
             this.View.AddSubview(bottomSheetViewController.View);
             bottomSheetViewController.DidMoveToParentViewController(this);
 
-            // 3- Adjust bottomSheet frame and initial position.
-            var height = View.Frame.Height;
-            var width = View.Frame.Width;
-            bottomSheetViewController.View.Frame = new CGRect(0, this.View.Frame.GetMaxY(), width, height);
+            // BottomSheetViewController frame
+            bottomSheetViewController.View.Frame = new CGRect(0, View.Frame.GetMaxY(), View.Frame.Width, View.Frame.Height);
 
-            //btMain.TouchUpInside += BtMain_TouchUpInside;
+            btMain.TouchUpInside += BtMain_TouchUpInside;
 
-            //UITapGestureRecognizer tapGesture = new UITapGestureRecognizer(HandleAction);
-            //View.AddGestureRecognizer(tapGesture);
+            UITapGestureRecognizer tapGesture = new UITapGestureRecognizer(HandleAction);
+            View.AddGestureRecognizer(tapGesture);
         }
 
         void HandleAction()
@@ -47,16 +45,9 @@ namespace XBottomSheet.Touch.Sample
             bottomSheetViewController.View.Hidden = true;
         }
 
-
         void BtMain_TouchUpInside(object sender, EventArgs e)
         {
             bottomSheetViewController.View.Hidden = false;
-        }
-
-        public override void DidReceiveMemoryWarning()
-        {
-            base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
         }
     }
 }
