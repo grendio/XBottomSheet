@@ -1,5 +1,4 @@
-﻿using System;
-namespace XBottomSheet.Touch
+﻿namespace XBottomSheet.Touch
 {
     public enum BottomSheetState
     {

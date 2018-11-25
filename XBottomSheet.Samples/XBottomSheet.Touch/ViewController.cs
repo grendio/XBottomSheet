@@ -24,7 +24,7 @@ namespace XBottomSheet.Touch.Sample
         {
             // Create BottomSheetViewController
             var bottom = UIScreen.MainScreen.Bounds.Height - UIApplication.SharedApplication.StatusBarFrame.Height;
-            bottomSheetViewController = new BottomSheetViewController(100, 300);//, bottom);
+            bottomSheetViewController = new BottomSheetViewController(100, 300, bottom, true, BottomSheetState.Bottom);//, bottom);
 
             // Add BottomSheetViewController as a child view 
             this.AddChildViewController(bottomSheetViewController);
