@@ -14,7 +14,7 @@ namespace XBottomSheet.Touch.Views
         private BottomSheetState currentState;
 
         /// <summary>
-        /// This will create a new UIViewController that will behave as a BottomSheet control. As it will have the bottom stop point, there won't be autohide available. In order to have autohide, use the constructor without bottom parrameter.
+        /// Create a new UIViewController that will behave as a BottomSheet control. As it will have the bottom stop point, there won't be autohide available. In order to have autohide, use the constructor without bottom parrameter.
         /// </summary>
         /// <param name="top">Top point for the control to expand to.</param>
         /// <param name="middle">Middle point where control will stop. This can be used as default state as well.</param>
@@ -29,7 +29,7 @@ namespace XBottomSheet.Touch.Views
         }
 
         /// <summary>
-        /// This will create a new UIViewController that will behave as a BottomSheet control. Autohide is on as the bottom point is not provided.
+        /// Create a new UIViewController that will behave as a BottomSheet control. Autohide is on as the bottom point is not provided.
         /// </summary>
         /// <param name="top">Top point for the control to expand to.</param>
         /// <param name="middle">Middle point where control will stop. This can be used as default state as well.</param>
@@ -56,6 +56,7 @@ namespace XBottomSheet.Touch.Views
             PrepareBackgroundView();
         }
 
+        //TODO Check if we can use this animated parameter instead of ours
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
@@ -67,6 +68,28 @@ namespace XBottomSheet.Touch.Views
             else
                 View.Frame = new CGRect(0, middle, View.Frame.Width, View.Frame.Height);
             currentState = BottomSheetState.Middle;
+        }
+
+        /// <summary>
+        /// Make the control visible again.
+        /// </summary>
+        public void Show()
+        {
+            View.Hidden = false;
+        }
+
+        /// <summary>
+        /// This will hide the control.
+        /// </summary>
+        /// <param name="resetState">Takes control back to default state (e.g. Middle).</param>
+        public void Hide(bool resetState)
+        {
+            if (resetState && currentState != BottomSheetState.Middle)
+            {
+                View.Frame = new CGRect(0, middle, View.Frame.Width, View.Frame.Height);
+                currentState = BottomSheetState.Middle;
+            }
+            View.Hidden = true;
         }
 
         private void PanGesture(UIPanGestureRecognizer recognizer)
@@ -96,6 +119,10 @@ namespace XBottomSheet.Touch.Views
                         {
                             View.Frame = new CGRect(0, middle, View.Frame.Width, View.Frame.Height);
                             currentState = BottomSheetState.Middle;
+                        }
+                        else if (bottom == 0)
+                        {
+                            Hide(true);
                         }
                         else
                         {

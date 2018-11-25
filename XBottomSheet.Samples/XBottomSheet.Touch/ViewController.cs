@@ -24,7 +24,7 @@ namespace XBottomSheet.Touch.Sample
         {
             // Create BottomSheetViewController
             var bottom = UIScreen.MainScreen.Bounds.Height - UIApplication.SharedApplication.StatusBarFrame.Height;
-            bottomSheetViewController = new BottomSheetViewController(100, 300, bottom);
+            bottomSheetViewController = new BottomSheetViewController(100, 300);//, bottom);
 
             // Add BottomSheetViewController as a child view 
             this.AddChildViewController(bottomSheetViewController);
@@ -42,12 +42,12 @@ namespace XBottomSheet.Touch.Sample
 
         void HandleAction()
         {
-            bottomSheetViewController.View.Hidden = true;
+            bottomSheetViewController.Hide(true);
         }
 
         void BtMain_TouchUpInside(object sender, EventArgs e)
         {
-            bottomSheetViewController.View.Hidden = false;
+            bottomSheetViewController.Show();
         }
     }
 }
