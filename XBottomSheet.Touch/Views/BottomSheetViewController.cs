@@ -13,6 +13,7 @@ namespace XBottomSheet.Touch.Views
         private readonly BottomSheetState defaultState;
 
         private BottomSheetState currentState;
+        private UIView customView;
 
         /// <summary>
         /// Create a new UIViewController that will behave as a BottomSheet control. As it will have the bottom stop point, there won't be autohide available. In order to have autohide, use the constructor without bottom parrameter.
@@ -83,16 +84,24 @@ namespace XBottomSheet.Touch.Views
         }
 
         /// <summary>
-        /// This will hide the control.
+        /// Hide the control.
         /// </summary>
         /// <param name="resetState">Takes control back to default state (e.g. Middle).</param>
         public void Hide(bool resetState)
         {
             if (resetState && currentState != defaultState)
-            {
                 CreateViewFrame(defaultState);
-            }
             View.Hidden = true;
+        }
+
+        //TODO Add this to constructor
+        /// <summary>
+        /// Add custom subview to the control.
+        /// </summary>
+        /// <param name="customView">Custom UIView that will be shown instead of the default one.</param>
+        public void SetCustomView(UIView customView)
+        {
+            View.AddSubview(customView);
         }
 
         private void PanGesture(UIPanGestureRecognizer recognizer)
@@ -121,9 +130,7 @@ namespace XBottomSheet.Touch.Views
                         if (currentState == BottomSheetState.Top)
                             CreateViewFrame(BottomSheetState.Middle);
                         else if (bottom == 0)
-                        {
                             Hide(true);
-                        }
                         else
                             CreateViewFrame(BottomSheetState.Bottom);
                     }
