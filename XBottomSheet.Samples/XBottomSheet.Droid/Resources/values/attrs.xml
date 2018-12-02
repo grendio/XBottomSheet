@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="AnchoredBottomSheetBehavior_Layout">
+    <attr name="anchorOffset" format="dimension" />
+    <attr name="peekHeight" format="dimension" />
+    <attr name="defaultState" format="enum">
+      <enum name="expanded" value="3" />
+      <enum name="collapsed" value="4" />
+      <enum name="hidden" value="5" />
+      <enum name="anchored" value="6" />
+    </attr>
+    <attr name="skipAnchored" format="boolean" />
+    <attr name="skipCollapsed" format="boolean" />
+    <attr name="hideable" format="boolean"/>
+  </declare-styleable>
+</resources>

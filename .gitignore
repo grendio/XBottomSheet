@@ -8,5 +8,10 @@ XBottomSheet.Droid/XBottomSheet.Droid.csproj.user
 XBottomSheet.Touch/XBottomSheet.Touch.csproj.user
 XBottomSheet.Samples/XBottomSheet.Touch/bin/*
 XBottomSheet.Samples/XBottomSheet.Touch/obj/*
+XBottomSheet.Samples/XBottomSheet.Droid/bin/*
+XBottomSheet.Samples/XBottomSheet.Droid/obj/*
 packages/*
 !packages/XBottomSheet.iOS.0.0.2
+XBottomSheet.Samples/XBottomSheet.Droid/.vs/*
+XBottomSheet.Samples/XBottomSheet.Droid/XBottomSheet.Droid.Sample.csproj.user
+XBottomSheet.Samples/XBottomSheet.Droid/Resources/AboutResources.txt
