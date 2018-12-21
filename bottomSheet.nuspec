@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata minClientVersion="">
+    <id>XBottomSheet.Droid</id>
+    <version>0.0.2</version>
+    <title>XBottomSheet.Droid</title>
+    <authors>Grendio</authors>
+    <owners>Grendio</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/grendio/XBottomSheet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/grendio/XBottomSheet</projectUrl>
+    <iconUrl>https://avatars1.githubusercontent.com/u/45300196</iconUrl>
+    <description>BottomSheet component for Xamarin.Droid</description>
+    <summary>BottomSheet component for Xamarin.Droid</summary>
+    <releaseNotes></releaseNotes>
+    <copyright></copyright>
+    <language>en-US</language>
+    <tags>bottomsheet, android, xamarin</tags>
+    <dependencies>
+      <group targetFramework="MonoAndroid1.0">
+        <dependency id="Xamarin.Android.Support.Design" version="25.0.2.1" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Java.Interop" targetFramework="MonoAndroid1.0" />
+      <frameworkAssembly assemblyName="Mono.Android" targetFramework="MonoAndroid1.0" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="MonoAndroid1.0" />
+      <frameworkAssembly assemblyName="System" targetFramework="MonoAndroid1.0" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="MonoAndroid1.0" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="XBottomSheet.Droid.dll" target="lib\MonoAndroid10\XBottomSheet.Droid.dll" />
+    <file src="XBottomSheet.Droid.pdb" target="lib\MonoAndroid10\XBottomSheet.Droid.pdb" />
+	<file src="attrs.xml" target="content/Resources/attrs.xml" />
+  </files>
+</package>
