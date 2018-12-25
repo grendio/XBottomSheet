@@ -28,9 +28,6 @@
       <frameworkAssembly assemblyName="System.Core" targetFramework="MonoAndroid1.0" />
       <frameworkAssembly assemblyName="System" targetFramework="MonoAndroid1.0" />
       <frameworkAssembly assemblyName="System.Xml" targetFramework="MonoAndroid1.0" />
-      <frameworkAssembly assemblyName="System.Core" targetFramework="Xamarin.iOS1.0" />
-      <frameworkAssembly assemblyName="System" targetFramework="Xamarin.iOS1.0" />
-      <frameworkAssembly assemblyName="System.Xml" targetFramework="Xamarin.iOS1.0" />
       <frameworkAssembly assemblyName="Xamarin.iOS" targetFramework="Xamarin.iOS1.0" />
     </frameworkAssemblies>
   </metadata>
