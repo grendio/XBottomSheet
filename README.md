@@ -6,3 +6,5 @@ XBottomSheet.Touch.Sample ![Build status](https://build.appcenter.ms/v0.1/apps/6
 
 
 XBottomSheet.Droid ![Build status](https://build.appcenter.ms/v0.1/apps/7776b9f9-6d94-46ee-a52b-308a95474f4f/branches/master/badge)
+
+XBottomSheet.Droid.Sample ![Build status](https://build.appcenter.ms/v0.1/apps/a0eaabee-958e-4df9-ad0a-df6810756f96/branches/master/badge)
