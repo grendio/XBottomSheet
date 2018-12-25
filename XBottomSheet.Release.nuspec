@@ -32,8 +32,8 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="XBottomSheet.Droid/bin/Release/XBottomSheet.Droid.dll" target="lib\MonoAndroid10\XBottomSheet.Droid.dll" />
-    <file src="XBottomSheet.Droid/Resources/values/attrs.xml" target="content/Resources/attrs.xml" />
-    <file src="XBottomSheet.Touch/bin/iPhoneSimulator/Release/XBottomSheet.Touch.dll" target="lib\Xamarin.iOS1.0\XBottomSheet.Touch.dll" />
+    <file src="XBottomSheet.Droid\bin\Release\XBottomSheet.Droid.dll" target="lib\MonoAndroid10\XBottomSheet.Droid.dll" />
+    <file src="XBottomSheet.Droid\Resources\values\attrs.xml" target="content\MonoAndroid10\Resources\values\attrs.xml" />
+    <file src="XBottomSheet.Touch\bin\iPhoneSimulator\Release\XBottomSheet.Touch.dll" target="lib\Xamarin.iOS1.0\XBottomSheet.Touch.dll" />
   </files>
 </package>
