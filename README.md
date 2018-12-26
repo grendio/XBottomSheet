@@ -51,4 +51,6 @@ For more details on options for the constructors or their parameters, please che
 
 ### iOS
 
+![](demo_xbottomsheet.gif)
+
 ### Android
