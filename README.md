@@ -58,4 +58,5 @@ For more details on options for the constructors or their parameters, please che
 ## Conclusion
 
 ### If you have a question or a suggestion, please add an issue and we'll discuss over it. We're open to respond, add new features, fine tune our solutions or, last, but most important, to fix bugs/problems that you encounter. 
-#### As you've got this far and our code might helped you, support us to build more content like this through [BuyMeACoffee](https://www.buymeacoff.ee/grendio)
+#### As you've got this far and our code might helped you, support us to build more content like this through: 
+<a href="https://www.buymeacoffee.com/grendio" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
