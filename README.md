@@ -54,3 +54,8 @@ For more details on options for the constructors or their parameters, please che
 ![](demo_xbottomsheet.gif)
 
 ### Android
+
+## Conclusion
+
+### If you have a question or a suggestion, please add an issue and we'll discuss over it. We're open to respond, add new features, fine tune our solutions or, last, but most important, to fix bugs/problems that you encounter. 
+#### As you've got this far and our code might helped you, support us to build more content like this through [BuyMeACoffee](https://www.buymeacoff.ee/grendio)
