@@ -18,7 +18,7 @@ On client projects install the nuget XBotomSheet ([![NuGet](https://img.shields.
 public override void ViewDidLoad()
 {
     base.ViewDidLoad();
-    var bottomSheetViewController = new BottomSheetViewController(100, 300, bottom, true, BottomSheetState.Bottom);
+    var bottomSheetViewController = new BottomSheetViewController(100, 300, 500, true, BottomSheetState.Bottom);
 }
 ```
 For more details on options for the constructors or their parameters, please check the implementation.
