@@ -55,6 +55,10 @@ For more details on options for the constructors or their parameters, please che
 
 ### Android
 
+## Known issues/difficulties
+
+- If you add this controll with **GMSMapView** or other similar feature that has its own gesture management it is possible to prevent XBottomSheet to trigger the **PanGesture** method, even if it registers it. For GMSMapView, the fix is to have "**mapView.Settings.ConsumesGesturesInView = false;**", where mapView is your GMSMapView object.
+
 ## Conclusion
 
 ### If you have a question or a suggestion, please add an issue and we'll discuss over it. We're open to respond, add new features, fine tune our solutions or, last, but most important, to fix bugs/problems that you encounter. 
