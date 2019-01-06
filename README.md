@@ -46,6 +46,18 @@ For more details on options for the constructors or their parameters, please che
 
 ### Android
 
+You can use this view by adding it within your layout:
+
+```
+	<XBottomSheet.Droid.Views.XBottomSheetView
+		android:id="@+id/BottomSheet"
+		app:anchorOffset="320dp"
+		app:peekHeight="192dp"
+		app:defaultState="collapsed"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+	</XBottomSheet.Droid.Views.XBottomSheetView>
+```
 
 ## Demo
 
