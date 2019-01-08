@@ -17,7 +17,7 @@ namespace XBottomSheet.Droid.Views
         private NestedScrollView contentScroller;
 
         #region Properties
-        public int PeekHeight { get; set; } = 100;
+        public int PeekHeight { get; set; } = 10;
         public int AnchorHeight { get; set; } = 600;
 
         private View contentView;
@@ -34,7 +34,7 @@ namespace XBottomSheet.Droid.Views
                     contentView = value;
                     RemoveAllViewsInLayout();
                     contentScroller.RemoveAllViews();
-                    contentScroller.AddView(value, LayoutParams.MatchParent, LayoutParams.MatchParent);
+                    contentScroller.AddView(value);
 
                     var prm = new CoordinatorLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);
                     prm.Behavior = behavior;
