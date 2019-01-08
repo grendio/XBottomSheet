@@ -46,17 +46,26 @@ For more details on options for the constructors or their parameters, please che
 
 ### Android
 
-You can use this view by adding it within your layout:
+1. You can use this view by adding it within your layout:
 
 ```
-	<XBottomSheet.Droid.Views.XBottomSheetView
-		android:id="@+id/BottomSheet"
-		app:anchorOffset="320dp"
-		app:peekHeight="192dp"
-		app:defaultState="collapsed"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent">
-	</XBottomSheet.Droid.Views.XBottomSheetView>
+   <XBottomSheet.Droid.Views.XBottomSheetView
+	android:id="@+id/BottomSheet"
+	app:anchorOffset="320dp"
+	app:peekHeight="192dp"
+	app:defaultState="collapsed"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+   </XBottomSheet.Droid.Views.XBottomSheetView>
+```
+2. In order to use a custom view you will need to inflate a desired Android layout file (ex. CustomView.axml) and assign it to the ContentView property of XBottomSheetView:
+
+```
+    var bottomSheetView = FindViewById<XBottomSheetView>(Resource.Id.BottomSheet);
+    var customView = LayoutInflater.Inflate(Resource.Layout.CustomView, null);
+    
+    bottomSheetView.ContentView = customView;
+    bottomSheetView.BackgroundColor = Color.Transparent;
 ```
 
 ## Demo
