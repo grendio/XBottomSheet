@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata minClientVersion="">
+    <id>XBottomSheet.Debug</id>
+    <version>0.0.4-beta</version>
+    <title>XBottomSheet.Debug</title>
+    <authors>Grendio</authors>
+    <owners>Grendio</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/grendio/XBottomSheet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/grendio/XBottomSheet</projectUrl>
+    <iconUrl>https://avatars1.githubusercontent.com/u/45300196</iconUrl>
+    <description>BottomSheet component for Xamarin.Droid and Xamarin.iOS</description>
+    <summary>BottomSheet component for Xamarin.Droid and Xamarin.iOS</summary>
+    <releaseNotes></releaseNotes>
+    <copyright></copyright>
+    <language>en-US</language>
+    <tags>bottomsheet, android, xamarin, ios</tags>
+    <dependencies>
+      <group targetFramework="MonoAndroid1.0">
+        <dependency id="Xamarin.Android.Support.Design" version="25.0.2.1" />
+      </group>
+      <group targetFramework="Xamarin.iOS1.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Java.Interop" targetFramework="MonoAndroid1.0" />
+      <frameworkAssembly assemblyName="Mono.Android" targetFramework="MonoAndroid1.0" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="MonoAndroid1.0" />
+      <frameworkAssembly assemblyName="System" targetFramework="MonoAndroid1.0" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="MonoAndroid1.0" />
+      <frameworkAssembly assemblyName="Xamarin.iOS" targetFramework="Xamarin.iOS1.0" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="XBottomSheet.Droid\bin\Debug\XBottomSheet.Droid.dll" target="lib\MonoAndroid10\XBottomSheet.Droid.dll" />
+    <file src="XBottomSheet.Droid\bin\Debug\XBottomSheet.Droid.pdb" target="lib\MonoAndroid10\XBottomSheet.Droid.pdb" />
+    <file src="XBottomSheet.Droid\Resources\values\attrs.xml" target="content\MonoAndroid10\Resources\values\attrs.xml" />
+    <file src="XBottomSheet.Touch\bin\iPhoneSimulator\Debug\XBottomSheet.Touch.dll" target="lib\Xamarin.iOS1.0\XBottomSheet.Touch.dll" />
+    <file src="XBottomSheet.Touch\bin\iPhoneSimulator\Debug\XBottomSheet.Touch.pdb" target="lib\Xamarin.iOS1.0\XBottomSheet.Touch.pdb" />
+  </files>
+</package>

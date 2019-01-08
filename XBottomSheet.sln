@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Droid", "XBott
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Droid.Sample", "XBottomSheet.Samples\XBottomSheet.Droid\XBottomSheet.Droid.Sample.csproj", "{5F6ADF16-1AED-4B17-BEEA-746FFDAB161A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C8078097-DFF5-4E38-952B-4AD31F76CB09}"
+	ProjectSection(SolutionItems) = preProject
+		XBottomSheet.Debug.nuspec = XBottomSheet.Debug.nuspec
+		XBottomSheet.Release.nuspec = XBottomSheet.Release.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

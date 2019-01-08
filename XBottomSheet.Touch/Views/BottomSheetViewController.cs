@@ -107,6 +107,7 @@ namespace XBottomSheet.Touch.Views
         private void PanGesture(UIPanGestureRecognizer recognizer)
         {
             var translation = recognizer.TranslationInView(View);
+            var location = recognizer.LocationInView(View.Superview);
             var y = View.Frame.GetMinY();
             View.Frame = new CGRect(0, y + translation.Y, View.Frame.Width, View.Frame.Height);
             recognizer.SetTranslation(CGPoint.Empty, View);
@@ -125,22 +126,12 @@ namespace XBottomSheet.Touch.Views
 
                 UIView.Animate(duration, 0.0, UIViewAnimationOptions.AllowUserInteraction, () =>
                 {
-                    if (velocity.Y >= 0)
-                    {
-                        if (currentState == BottomSheetState.Top)
-                            CreateViewFrame(BottomSheetState.Middle);
-                        else if (bottom == 0)
-                            Hide(true);
-                        else
-                            CreateViewFrame(BottomSheetState.Bottom);
-                    }
-                    else
-                    {
-                        if (currentState == BottomSheetState.Bottom)
-                            CreateViewFrame(BottomSheetState.Middle);
-                        else
-                            CreateViewFrame(BottomSheetState.Top);
-                    }
+                    if (bottom - location.Y < (bottom - middle)/2)
+                        CreateViewFrame(BottomSheetState.Bottom);
+                    else if (middle - location.Y < (middle - top)/2)
+                        CreateViewFrame(BottomSheetState.Middle);
+                    else if (location.Y - top < (middle - top)/2)
+                        CreateViewFrame(BottomSheetState.Top);
                 }, null);
             }
         }

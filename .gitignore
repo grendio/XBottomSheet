@@ -15,3 +15,4 @@ packages/*
 XBottomSheet.Samples/XBottomSheet.Droid/.vs/*
 XBottomSheet.Samples/XBottomSheet.Droid/XBottomSheet.Droid.Sample.csproj.user
 XBottomSheet.Samples/XBottomSheet.Droid/Resources/AboutResources.txt
+*.nupkg
