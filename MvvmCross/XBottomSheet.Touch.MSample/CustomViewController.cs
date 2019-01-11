@@ -1,4 +1,5 @@
 ﻿using MvvmCross;
+using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Views;
 using MvvmCross.ViewModels;
 using XBottomSheet.Core.MSample.ViewModels;
@@ -17,7 +18,10 @@ namespace XBottomSheet.Touch.MSample
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+
+            var set = this.CreateBindingSet<CustomViewController, CustomViewModel>();
+            set.Bind(lbTest).To(vm => vm.CustomValue);
+            set.Apply();
         }
     }
 }

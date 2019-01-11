@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomViewController">
             <connections>
+                <outlet property="lbTest" destination="Q7O-NW-4pm" id="name-outlet-Q7O-NW-4pm"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
         </placeholder>
@@ -26,7 +27,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Q7O-NW-4pm" firstAttribute="centerY" secondItem="2" secondAttribute="centerY" id="dXU-FF-23I"/>
                 <constraint firstItem="Q7O-NW-4pm" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="wxB-3P-am3"/>

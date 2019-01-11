@@ -1,4 +1,5 @@
-﻿using CoreGraphics;
+﻿using System;
+using CoreGraphics;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using MvvmCross.Platforms.Ios.Views;
 using MvvmCross.ViewModels;
@@ -12,6 +13,7 @@ namespace XBottomSheet.Touch.MSample
     public partial class MainViewController : MvxViewController<MainViewModel>
     {
         BottomSheetViewController bottomSheetViewController;
+        CustomViewController customViewController;
 
         public MainViewController() : base("MainViewController", null)
         {
@@ -38,8 +40,15 @@ namespace XBottomSheet.Touch.MSample
             bottomSheetViewController.View.Frame = new CGRect(0, View.Frame.GetMaxY(), View.Frame.Width, View.Frame.Height);
 
             var vmRequest = MvxViewModelRequest.GetDefaultRequest(typeof(CustomViewModel));
-            var customViewController = new MvxViewController().CreateViewControllerFor<CustomViewModel>(vmRequest) as CustomViewController;
+            customViewController = new MvxViewController().CreateViewControllerFor<CustomViewModel>(vmRequest) as CustomViewController;
             bottomSheetViewController.SetCustomView(customViewController.View);
+        }
+
+        partial void TestButtonAction(UIButton sender)
+        {
+            var rnd = new Random();
+            int month = rnd.Next(1, 13);
+            customViewController.ViewModel.CustomValue = rnd.Next(1, 1000).ToString();
         }
     }
 }
