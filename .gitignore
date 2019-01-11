@@ -16,3 +16,7 @@ XBottomSheet.Samples/XBottomSheet.Droid/.vs/*
 XBottomSheet.Samples/XBottomSheet.Droid/XBottomSheet.Droid.Sample.csproj.user
 XBottomSheet.Samples/XBottomSheet.Droid/Resources/AboutResources.txt
 *.nupkg
+MvvmCross/XBottomSheet.Core.MSample/bin/*
+MvvmCross/XBottomSheet.Core.MSample/obj/*
+MvvmCross/XBottomSheet.Touch.MSample/bin/*
+MvvmCross/XBottomSheet.Touch.MSample/obj/*
