@@ -8,9 +8,11 @@
 
 ## Setup 
 
-On client projects install the nuget XBotomSheet ([![NuGet](https://img.shields.io/nuget/v/XBottomSheet.svg?label=NuGet)](https://www.nuget.org/packages/XBottomSheet/)) and then follow the steps based on platform:
+On client projects install the nuget XBottomSheet ([![NuGet](https://img.shields.io/nuget/v/XBottomSheet.svg?label=NuGet)](https://www.nuget.org/packages/XBottomSheet/)) and then follow the steps based on platform:
 
 ### iOS
+
+#### Simple way
 
 1. Create a new ViewController of type BottomSheetViewController within the ViewController that you want to add it to:
 
@@ -37,12 +39,47 @@ For more details on options for the constructors or their parameters, please che
     bottomSheetViewController.View.Frame = new CGRect(0, View.Frame.GetMaxY(), View.Frame.Width, View.Frame.Height);
 ```
 
-4. Add your custom view wihin as until now it would be only a blue view that can be dragged around:
+4. Add your custom view within as until now it would be only a blue view that can be dragged around:
 
 ```
     var custom = new CustomViewController();
     bottomSheetViewController.SetCustomView(custom.View);
 ```
+
+#### MvvmCross way
+
+After following the steps from previous way, continue with following:
+
+1. Add a ViewModel for the CustomViewController
+2. Associate the newly created ViewModel with the CustomViewController
+
+```
+    public partial class CustomViewController : MvxViewController<CustomViewModel>
+```
+3. Replace code from step 4 from 'Simple way' with:
+
+```
+    var vmRequest = MvxViewModelRequest.GetDefaultRequest(typeof(CustomViewModel));
+    var customViewController = new MvxViewController().CreateViewControllerFor<CustomViewModel>(vmRequest) as CustomViewController;
+    bottomSheetViewController.SetCustomView(customViewController.View);
+```
+4. As the previous step will only create the ViewControler, but not the ViewModel associated with it, add the following within your CustomViewControler constructor:
+
+```
+    public CustomViewController() : base("CustomViewController", null)
+    {
+        var loaderService = Mvx.Resolve<IMvxViewModelLoader>();
+        var mvxViewModelRequest = MvxViewModelRequest.GetDefaultRequest(typeof(CustomViewModel));
+        ViewModel = loaderService.LoadViewModel(mvxViewModelRequest, null) as CustomViewModel;
+    }
+```
+
+5. Now wherever you want to access or pass values to your CustomViewController ViewModel you can use something like this:
+
+```
+    customViewController.ViewModel.CustomValue = customValue;
+```
+Check the Touch.MSample for actual sample on how a value is passed in between.
 
 ### Android
 
