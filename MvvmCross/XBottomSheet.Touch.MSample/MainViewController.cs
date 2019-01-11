@@ -35,6 +35,9 @@ namespace XBottomSheet.Touch.MSample
 
             // BottomSheetViewController frame
             bottomSheetViewController.View.Frame = new CGRect(0, View.Frame.GetMaxY(), View.Frame.Width, View.Frame.Height);
+
+            var custom = new CustomViewController();
+            bottomSheetViewController.SetCustomView(custom.View);
         }
     }
 }
