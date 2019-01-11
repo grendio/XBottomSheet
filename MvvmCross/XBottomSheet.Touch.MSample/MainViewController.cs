@@ -1,6 +1,7 @@
 ﻿using CoreGraphics;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using MvvmCross.Platforms.Ios.Views;
+using MvvmCross.ViewModels;
 using UIKit;
 using XBottomSheet.Core.MSample.ViewModels;
 using XBottomSheet.Touch.Views;
@@ -36,8 +37,9 @@ namespace XBottomSheet.Touch.MSample
             // BottomSheetViewController frame
             bottomSheetViewController.View.Frame = new CGRect(0, View.Frame.GetMaxY(), View.Frame.Width, View.Frame.Height);
 
-            var custom = new CustomViewController();
-            bottomSheetViewController.SetCustomView(custom.View);
+            var vmRequest = MvxViewModelRequest.GetDefaultRequest(typeof(CustomViewModel));
+            var customViewController = new MvxViewController().CreateViewControllerFor<CustomViewModel>(vmRequest) as CustomViewController;
+            bottomSheetViewController.SetCustomView(customViewController.View);
         }
     }
 }
