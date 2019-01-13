@@ -56,12 +56,6 @@ namespace XBottomSheet.Touch.Views
             View.AddGestureRecognizer(gesture);
         }
 
-        public override void ViewWillAppear(bool animated)
-        {
-            base.ViewWillAppear(animated);
-            PrepareBackgroundView();
-        }
-
         //TODO Check if we can use this animated parameter instead of ours
         public override void ViewDidAppear(bool animated)
         {
@@ -134,19 +128,6 @@ namespace XBottomSheet.Touch.Views
                         CreateViewFrame(BottomSheetState.Top);
                 }, null);
             }
-        }
-
-        private void PrepareBackgroundView()
-        {
-            var blurEffect = UIBlurEffect.FromStyle(UIBlurEffectStyle.Dark);
-            var visualEffect = new UIVisualEffectView(blurEffect);
-            var bluredView = new UIVisualEffectView(blurEffect);
-            bluredView.ContentView.AddSubview(visualEffect);
-
-            visualEffect.Frame = UIScreen.MainScreen.Bounds;
-            bluredView.Frame = UIScreen.MainScreen.Bounds;
-
-            View.InsertSubview(bluredView, 0);
         }
 
         private void CreateViewFrame(BottomSheetState state)
