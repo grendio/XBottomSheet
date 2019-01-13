@@ -12,7 +12,7 @@ On client projects install the nuget XBottomSheet ([![NuGet](https://img.shields
 
 ### iOS
 
-#### Simple way
+#### Standard
 
 1. Create a new ViewController of type BottomSheetViewController within the ViewController that you want to add it to:
 
@@ -46,7 +46,7 @@ For more details on options for the constructors or their parameters, please che
     bottomSheetViewController.SetCustomView(custom.View);
 ```
 
-#### MvvmCross way
+#### MvvmCross
 
 After following the steps from previous way, continue with following:
 
@@ -83,6 +83,7 @@ Check the Touch.MSample for actual sample on how a value is passed in between.
 
 ### Android
 
+#### Standard
 1. You can use this view by adding it within your layout:
 
 ```
@@ -103,6 +104,14 @@ Check the Touch.MSample for actual sample on how a value is passed in between.
     
     bottomSheetView.ContentView = customView;
     bottomSheetView.BackgroundColor = Color.Transparent;
+```
+
+#### MvvmCross
+
+After following previous steps, in order to bind the ViewModel with your CustomView you'll need to replace LayoutInflater.Inflate with BindingInflate
+
+```
+   var customView = this.BindingInflate(Resource.Layout.CustomView, null);
 ```
 
 ## Demo
