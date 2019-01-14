@@ -86,7 +86,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="XBottomSheet.Touch">
-      <HintPath>..\..\packages\XBottomSheet.0.0.2-beta\lib\Xamarin.iOS1.0\XBottomSheet.Touch.dll</HintPath>
+      <HintPath>..\..\packages\XBottomSheet.1.0.0\lib\Xamarin.iOS1.0\XBottomSheet.Touch.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

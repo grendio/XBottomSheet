@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata minClientVersion="">
-    <id>XBottomSheet.Debug</id>
-    <version>0.0.4-beta</version>
-    <title>XBottomSheet.Debug</title>
+    <id>XBottomSheet</id>
+    <version>1.0.0</version>
+    <title>XBottomSheet</title>
     <authors>Grendio</authors>
     <owners>Grendio</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -33,9 +33,7 @@
   </metadata>
   <files>
     <file src="XBottomSheet.Droid\bin\Debug\XBottomSheet.Droid.dll" target="lib\MonoAndroid10\XBottomSheet.Droid.dll" />
-    <file src="XBottomSheet.Droid\bin\Debug\XBottomSheet.Droid.pdb" target="lib\MonoAndroid10\XBottomSheet.Droid.pdb" />
     <file src="XBottomSheet.Droid\Resources\values\attrs.xml" target="content\MonoAndroid10\Resources\values\attrs.xml" />
     <file src="XBottomSheet.Touch\bin\iPhoneSimulator\Debug\XBottomSheet.Touch.dll" target="lib\Xamarin.iOS1.0\XBottomSheet.Touch.dll" />
-    <file src="XBottomSheet.Touch\bin\iPhoneSimulator\Debug\XBottomSheet.Touch.pdb" target="lib\Xamarin.iOS1.0\XBottomSheet.Touch.pdb" />
   </files>
 </package>
