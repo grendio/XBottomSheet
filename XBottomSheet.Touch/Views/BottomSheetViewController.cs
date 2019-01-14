@@ -47,6 +47,19 @@ namespace XBottomSheet.Touch.Views
             this.defaultState = defaultState;
         }
 
+        /// <summary>
+        /// Create a new UIViewController that will behave as a BottomSheet control. Autohide is on as the bottom point is not provided.
+        /// </summary>
+        /// <param name="middle">Middle point where control will stop. This is the only possible state for the control. For more states, check rest of the constructors.</param>
+        /// <param name="animatedAppearance">Specify if control should appear animated.</param>
+        public BottomSheetViewController(nfloat middle, bool animatedAppearance = true) : base("BottomSheetViewController", null)
+        {
+            this.top = middle;
+            this.middle = middle;
+            this.animatedAppearance = animatedAppearance;
+            this.defaultState = BottomSheetState.Middle;
+        }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -120,11 +133,13 @@ namespace XBottomSheet.Touch.Views
 
                 UIView.Animate(duration, 0.0, UIViewAnimationOptions.AllowUserInteraction, () =>
                 {
-                    if (bottom - location.Y < (bottom - middle)/2)
+                    if (middle == top && bottom == 0)
+                        CreateViewFrameForSingleState(location.Y);
+                    else if (bottom - location.Y < (bottom - middle) / 2)
                         CreateViewFrame(BottomSheetState.Bottom);
-                    else if (middle - location.Y < (middle - top)/2)
+                    else if (middle - location.Y < (middle - top) / 2)
                         CreateViewFrame(BottomSheetState.Middle);
-                    else if (location.Y - top < (middle - top)/2)
+                    else if (location.Y - top < (middle - top) / 2)
                         CreateViewFrame(BottomSheetState.Top);
                 }, null);
             }
@@ -147,6 +162,14 @@ namespace XBottomSheet.Touch.Views
                 View.Frame = new CGRect(0, bottom, View.Frame.Width, View.Frame.Height);
                 currentState = BottomSheetState.Bottom;
             }
+        }
+
+        private void CreateViewFrameForSingleState(nfloat endTapLocation)
+        {
+            if (endTapLocation > middle)
+                Hide(false);
+            View.Frame = new CGRect(0, middle, View.Frame.Width, View.Frame.Height);
+            currentState = BottomSheetState.Middle;
         }
     }
 }
