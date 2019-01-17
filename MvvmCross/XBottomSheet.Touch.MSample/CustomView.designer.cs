@@ -1,4 +1,4 @@
-﻿// WARNING
+// WARNING
 //
 // This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
@@ -11,18 +11,18 @@ using UIKit;
 
 namespace XBottomSheet.Touch.MSample
 {
-    [Register ("CustomViewController")]
-    partial class CustomViewController
+    [Register ("CustomView")]
+    partial class CustomView
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lbTest { get; set; }
+        UIKit.UILabel lbCustomValue { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (lbTest != null) {
-                lbTest.Dispose ();
-                lbTest = null;
+            if (lbCustomValue != null) {
+                lbCustomValue.Dispose ();
+                lbCustomValue = null;
             }
         }
     }

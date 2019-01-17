@@ -1,8 +1,8 @@
 ﻿using System;
 using CoreGraphics;
+using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using MvvmCross.Platforms.Ios.Views;
-using MvvmCross.ViewModels;
 using UIKit;
 using XBottomSheet.Core.MSample.ViewModels;
 using XBottomSheet.Touch.Views;
@@ -13,7 +13,7 @@ namespace XBottomSheet.Touch.MSample
     public partial class MainViewController : MvxViewController<MainViewModel>
     {
         BottomSheetViewController bottomSheetViewController;
-        CustomViewController customViewController;
+        CustomView customView;
 
         public MainViewController() : base("MainViewController", null)
         {
@@ -39,16 +39,21 @@ namespace XBottomSheet.Touch.MSample
             // BottomSheetViewController frame
             bottomSheetViewController.View.Frame = new CGRect(0, View.Frame.GetMaxY(), View.Frame.Width, View.Frame.Height);
 
-            var vmRequest = MvxViewModelRequest.GetDefaultRequest(typeof(CustomViewModel));
-            customViewController = new MvxViewController().CreateViewControllerFor<CustomViewModel>(vmRequest) as CustomViewController;
-            bottomSheetViewController.SetCustomView(customViewController.View);
+            customView = CustomView.Create();
+            customView.Frame = View.Frame;
+
+            var set = this.CreateBindingSet<MainViewController, MainViewModel>();
+            set.Bind(customView.CustomValue).For(t => t.Text).To(vm => vm.CustomValue);
+            set.Apply();
+
+            bottomSheetViewController.SetCustomView(customView);
         }
 
         partial void TestButtonAction(UIButton sender)
         {
             var rnd = new Random();
             int month = rnd.Next(1, 13);
-            customViewController.ViewModel.CustomValue = rnd.Next(1, 1000).ToString();
+            ViewModel.CustomValue = rnd.Next(1, 1000).ToString();
         }
     }
 }

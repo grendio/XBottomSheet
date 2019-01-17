@@ -103,7 +103,7 @@
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Resources\Main.storyboard" />
     <InterfaceDefinition Include="MainViewController.xib" />
-    <InterfaceDefinition Include="CustomViewController.xib" />
+    <InterfaceDefinition Include="CustomView.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -118,9 +118,9 @@
     <Compile Include="MainViewController.designer.cs">
       <DependentUpon>MainViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomViewController.cs" />
-    <Compile Include="CustomViewController.designer.cs">
-      <DependentUpon>CustomViewController.cs</DependentUpon>
+    <Compile Include="CustomView.cs" />
+    <Compile Include="CustomView.designer.cs">
+      <DependentUpon>CustomView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
