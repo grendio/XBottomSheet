@@ -48,8 +48,9 @@ namespace XBottomSheet.Touch.Sample
         void BtMain_TouchUpInside(object sender, EventArgs e)
         {
             bottomSheetViewController.Show();
-            var custom = new CustomViewController();
-            bottomSheetViewController.SetCustomView(custom.View);
+            var customView = CustomView.Create();
+            customView.Frame = View.Frame;
+            bottomSheetViewController.SetCustomView(customView);
         }
     }
 }

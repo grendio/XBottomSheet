@@ -11,8 +11,8 @@ using UIKit;
 
 namespace XBottomSheet.Touch.Sample
 {
-    [Register ("CustomViewController")]
-    partial class CustomViewController
+    [Register ("CustomView")]
+    partial class CustomView
     {
         void ReleaseDesignerOutlets ()
         {
