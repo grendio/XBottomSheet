@@ -42,43 +42,38 @@ For more details on options for the constructors or their parameters, please che
 4. Add your custom view within as until now it would be only a blue view that can be dragged around:
 
 ```
-    var custom = new CustomViewController();
-    bottomSheetViewController.SetCustomView(custom.View);
+    customView = CustomView.Create();
+    customView.Frame = View.Frame;
+    bottomSheetViewController.SetCustomView(customView);
 ```
 
 #### MvvmCross
 
 After following the steps from previous way, continue with following:
 
-1. Add a ViewModel for the CustomViewController
-2. Associate the newly created ViewModel with the CustomViewController
+1. As you can add any control within that custom view, in order to make it available for binding, you have to create a public geter/setter for it, similar to this:
 
 ```
-    public partial class CustomViewController : MvxViewController<CustomViewModel>
-```
-3. Replace code from step 4 from 'Simple way' with:
-
-```
-    var vmRequest = MvxViewModelRequest.GetDefaultRequest(typeof(CustomViewModel));
-    var customViewController = new MvxViewController().CreateViewControllerFor<CustomViewModel>(vmRequest) as CustomViewController;
-    bottomSheetViewController.SetCustomView(customViewController.View);
-```
-4. As the previous step will only create the ViewControler, but not the ViewModel associated with it, add the following within your CustomViewControler constructor:
-
-```
-    public CustomViewController() : base("CustomViewController", null)
+    public UILabel CustomValue
     {
-        var loaderService = Mvx.Resolve<IMvxViewModelLoader>();
-        var mvxViewModelRequest = MvxViewModelRequest.GetDefaultRequest(typeof(CustomViewModel));
-        ViewModel = loaderService.LoadViewModel(mvxViewModelRequest, null) as CustomViewModel;
+        get
+        {
+            return lbCustomValue;
+        }
+        set
+        {
+            lbCustomValue = value;
+        }
     }
 ```
-
-5. Now wherever you want to access or pass values to your CustomViewController ViewModel you can use something like this:
+2. Within the MainViewController (or parent view controller) create a binding set between the controls that you have in the custom view and the view model associated with the parent view controller:
 
 ```
-    customViewController.ViewModel.CustomValue = customValue;
+    var set = this.CreateBindingSet<MainViewController, MainViewModel>();
+    set.Bind(customView.CustomValue).For(t => t.Text).To(vm => vm.CustomValue);
+    set.Apply();
 ```
+
 Check the Touch.MSample for actual sample on how a value is passed in between.
 
 ### Android
