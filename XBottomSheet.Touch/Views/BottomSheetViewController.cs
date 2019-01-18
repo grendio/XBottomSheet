@@ -16,6 +16,11 @@ namespace XBottomSheet.Touch.Views
         private UIView customView;
 
         /// <summary>
+        /// Gets or sets the duration of controller on how fast it should reach the anchor point. Default value is -2.
+        /// </summary>
+        public nfloat Duration { get; set; } = -2;
+
+        /// <summary>
         /// Create a new UIViewController that will behave as a BottomSheet control. As it will have the bottom stop point, there won't be autohide available. In order to have autohide, use the constructor without bottom parrameter.
         /// </summary>
         /// <param name="top">Top point for the control to expand to.</param>
@@ -74,7 +79,7 @@ namespace XBottomSheet.Touch.Views
         {
             base.ViewDidAppear(animated);
             if (animatedAppearance)
-                UIView.Animate(0.3, 0.0, UIViewAnimationOptions.AllowUserInteraction, () =>
+                UIView.Animate(Duration, 0.0, UIViewAnimationOptions.AllowUserInteraction, () =>
                 {
                     CreateViewFrame(defaultState);
                 }, null);
@@ -128,10 +133,7 @@ namespace XBottomSheet.Touch.Views
 
             if (recognizer.State == UIGestureRecognizerState.Ended)
             {
-                var duration = velocity.Y < 0 ? ((y - top) / -velocity.Y) : ((middle - y) / velocity.Y);
-                duration = duration > 1.3 ? 1 : duration;
-
-                UIView.Animate(duration, 0.0, UIViewAnimationOptions.AllowUserInteraction, () =>
+                UIView.Animate(Duration, 0.0, UIViewAnimationOptions.AllowUserInteraction, () =>
                 {
                     if (middle == top && bottom == 0)
                         CreateViewFrameForSingleState(location.Y);
