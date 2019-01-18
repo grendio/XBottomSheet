@@ -113,7 +113,7 @@ After following previous steps, in order to bind the ViewModel with your CustomV
 
 ### iOS
 
-![](demo_xbottomsheet.gif)
+![](demo_xbottomsheet_ios.gif)
 
 ### Android
 
