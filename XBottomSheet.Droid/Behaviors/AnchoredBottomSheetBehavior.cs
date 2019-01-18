@@ -35,6 +35,7 @@ namespace XBottomSheet.Droid.Behaviors
                 disableExpanded = value;
             }
         }
+
         public bool Hideable
         {
             get
@@ -46,6 +47,7 @@ namespace XBottomSheet.Droid.Behaviors
                 hideable = value;
             }
         }
+
         public int State
         {
             get
@@ -80,6 +82,7 @@ namespace XBottomSheet.Droid.Behaviors
                 }
             }
         }
+
         public int PeekHeight
         {
             get
@@ -112,6 +115,7 @@ namespace XBottomSheet.Droid.Behaviors
                 peekHeight = value;
             }
         }
+
         public bool SkipCollapsed
         {
             get
@@ -123,6 +127,7 @@ namespace XBottomSheet.Droid.Behaviors
                 skipCollapsed = value;
             }
         }
+
         public bool SkipAnchored
         {
             get
@@ -134,6 +139,7 @@ namespace XBottomSheet.Droid.Behaviors
                 skipAnchored = value;
             }
         }
+
         public int AnchorOffset
         {
             get
@@ -230,6 +236,7 @@ namespace XBottomSheet.Droid.Behaviors
                 velocityTracker = null;
             }
         }
+
         internal void SetStateInternal(int state)
         {
             if(this.state == state)
@@ -248,6 +255,7 @@ namespace XBottomSheet.Droid.Behaviors
                 }
             }
         }
+
         internal void StartSettlingAnimation(View child,int state)
         {
             int top = 0;
@@ -306,6 +314,7 @@ namespace XBottomSheet.Droid.Behaviors
                 }
             }
         }
+
         internal bool ShouldExpand(View child, float yVelocity)
         {
             if(skipAnchored || minOffset >= anchorOffset)
@@ -320,6 +329,7 @@ namespace XBottomSheet.Droid.Behaviors
             float newTop = currentTop + yVelocity * ExpandFriction;
             return newTop < anchorOffset;
         }
+
         internal bool ShouldCollapse(View child, float yVelocity)
         {
             if(skipAnchored || minOffset >= anchorOffset)
@@ -334,6 +344,7 @@ namespace XBottomSheet.Droid.Behaviors
             float newTop = currentTop + yVelocity * CollapseFriction;
             return newTop > anchorOffset;
         }
+
         internal bool ShouldHide(View child,float yVelocity)
         {
             if(skipCollapsed)
@@ -347,6 +358,7 @@ namespace XBottomSheet.Droid.Behaviors
             float newTop = child.Top + yVelocity * HideFriction;
             return Math.Abs(newTop - maxOffset) / (float)peekHeight > HideThreshold;
         }
+
         internal void CalculateTopAndTargetState(View child, float xVelocity, float yVelocity, int[] output)
         {
             int top = 0;
@@ -436,6 +448,7 @@ namespace XBottomSheet.Droid.Behaviors
                 this.state = ss.state;
             }
         }
+
         public override bool OnLayoutChild(CoordinatorLayout parent, Java.Lang.Object child, int layoutDirection)
         {
             if (ViewCompat.GetFitsSystemWindows(parent) && !ViewCompat.GetFitsSystemWindows((View)child))
@@ -518,6 +531,7 @@ namespace XBottomSheet.Droid.Behaviors
 
             return true;
         }
+
         public override bool OnInterceptTouchEvent(CoordinatorLayout parent, Java.Lang.Object child, MotionEvent ev)
         {
             if((child as View).IsShown || !allowUserDragging)
@@ -578,6 +592,7 @@ namespace XBottomSheet.Droid.Behaviors
                     !parent.IsPointInChildBounds(scrollView, (int)ev.GetX(), (int)ev.GetY()) &&
                      Math.Abs(initialY - ev.GetY()) > viewDragHelper.TouchSlop;
         }
+
         public override bool OnTouchEvent(CoordinatorLayout parent, Java.Lang.Object child, MotionEvent ev)
         {
             if(!(child as View).IsShown || !allowUserDragging)
@@ -618,6 +633,7 @@ namespace XBottomSheet.Droid.Behaviors
 
             return !ignoreEvents;
         }
+
         public override bool OnStartNestedScroll(CoordinatorLayout coordinatorLayout, Java.Lang.Object child, View directTargetChild, View target, int axes)
         {
             if(!allowUserDragging)
@@ -628,6 +644,7 @@ namespace XBottomSheet.Droid.Behaviors
 
             return (axes & ViewCompat.ScrollAxisVertical) != 0;
         }
+
         public override void OnNestedPreScroll(CoordinatorLayout coordinatorLayout, Java.Lang.Object child, View target, int dx, int dy, int[] consumed)
         {
             if(!allowUserDragging)
@@ -681,6 +698,7 @@ namespace XBottomSheet.Droid.Behaviors
             DispatchOnSlide((child as View).Top);
             nestedScrolled = true;
         }
+
         public override void OnStopNestedScroll(CoordinatorLayout coordinatorLayout, Java.Lang.Object child, View target)
         {
             if(!allowUserDragging)
@@ -719,6 +737,7 @@ namespace XBottomSheet.Droid.Behaviors
             }
             nestedScrolled = false;
         }
+
         public override bool OnNestedPreFling(CoordinatorLayout coordinatorLayout, Java.Lang.Object child, View target, float velocityX, float velocityY)
         {
             if(!allowUserDragging)
@@ -761,6 +780,7 @@ namespace XBottomSheet.Droid.Behaviors
             {
                 parentClass.DispatchOnSlide(top);
             }
+
             public override void OnViewDragStateChanged(int state)
             {
                 if(state == ViewDragHelper.StateDragging)
@@ -768,6 +788,7 @@ namespace XBottomSheet.Droid.Behaviors
                     parentClass.SetStateInternal(DRAGGING_STATE);
                 }
             }
+
             public override void OnViewReleased(View releasedChild, float xvel, float yvel)
             {
                 int[] output = new int[2];
@@ -786,14 +807,17 @@ namespace XBottomSheet.Droid.Behaviors
                     parentClass.SetStateInternal(targetState);
                 }
             }
+
             public override int ClampViewPositionVertical(View child, int top, int dy)
             {
                 return Constrain(top, parentClass.minOffset, parentClass.hideable ? parentClass.parentHeight : parentClass.maxOffset);
             }
+
             public override int ClampViewPositionHorizontal(View child, int left, int dx)
             {
                 return child.Left;
             }
+
             public override int GetViewVerticalDragRange(View child)
             {
                 if(parentClass.hideable)
