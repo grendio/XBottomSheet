@@ -17,8 +17,53 @@ namespace XBottomSheet.Droid.Views
         private NestedScrollView contentScroller;
 
         #region Properties
-        public int PeekHeight { get; set; } = 10;
-        public int AnchorHeight { get; set; } = 600;
+        public int PeekHeight
+        {
+            get
+            {
+                return behavior.PeekHeight;
+            }
+            set
+            {
+                behavior.PeekHeight = value;
+            }
+        }
+
+        public int AnchorOffset 
+        { 
+            get
+            {
+                return behavior.AnchorOffset;
+            }
+            set
+            {
+                behavior.anchorOffset = value;
+            }
+        }
+
+        public bool SkipAnchored
+        {
+            get
+            {
+                return behavior.SkipAnchored;
+            }
+            set
+            {
+                behavior.SkipAnchored = value;
+            }
+        }
+
+        public bool SkipCollapsed
+        {
+            get
+            {
+                return behavior.SkipCollapsed;
+            }
+            set
+            {
+                behavior.SkipCollapsed = value;
+            }
+        }
 
         private View contentView;
         public View ContentView
@@ -44,6 +89,7 @@ namespace XBottomSheet.Droid.Views
                 }
             }
         }
+
         public Color BackgroundColor
         {
             set
@@ -76,12 +122,11 @@ namespace XBottomSheet.Droid.Views
         public XBottomSheetView(Context context) : base(context) {}
         public XBottomSheetView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
-            behavior = new AnchoredBottomSheetBehavior(context,attrs)
+            behavior = new AnchoredBottomSheetBehavior(context, attrs)
             {
-                Hideable = false,
-                PeekHeight = PeekHeight,
-                AnchorOffset = AnchorHeight
+                Hideable = false
             };
+
             contentScroller = new NestedScrollView(context);
             contentScroller.SetBackgroundColor(Color.LightGray);
             ContentView = new FrameLayout(context);
