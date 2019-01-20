@@ -6,6 +6,10 @@
 | ------------- | ------------- | ------------- | ------------- |
 |![Build status](https://build.appcenter.ms/v0.1/apps/2a487f1b-e2e0-470a-8613-691b971bf67e/branches/master/badge)|![Build status](https://build.appcenter.ms/v0.1/apps/7776b9f9-6d94-46ee-a52b-308a95474f4f/branches/master/badge)|![Build status](https://build.appcenter.ms/v0.1/apps/66402bbe-a256-4709-91e3-6a4edeedaa69/branches/master/badge)|![Build status](https://build.appcenter.ms/v0.1/apps/a0eaabee-958e-4df9-ad0a-df6810756f96/branches/master/badge)|
 
+## Preview
+
+![](demo_xbottomsheet_ios.gif)
+
 ## Setup 
 
 On client projects install the nuget XBottomSheet ([![NuGet](https://img.shields.io/nuget/v/XBottomSheet.svg?label=NuGet)](https://www.nuget.org/packages/XBottomSheet/)) and then follow the steps based on platform:
@@ -108,12 +112,6 @@ After following previous steps, in order to bind the ViewModel with your CustomV
 ```
    var customView = this.BindingInflate(Resource.Layout.CustomView, null);
 ```
-
-## Demo
-
-### iOS
-
-![](demo_xbottomsheet_ios.gif)
 
 ### Android
 
