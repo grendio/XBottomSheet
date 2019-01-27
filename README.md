@@ -10,6 +10,10 @@
 
 ![](demo_xbottomsheet_ios.gif)
 
+## Blogs
+
+https://butonium.com/custom-bottomsheet-xamarin/
+
 ## Setup 
 
 On client projects install the nuget XBottomSheet ([![NuGet](https://img.shields.io/nuget/v/XBottomSheet.svg?label=NuGet)](https://www.nuget.org/packages/XBottomSheet/)) and then follow the steps based on platform:
