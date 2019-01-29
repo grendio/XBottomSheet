@@ -209,8 +209,8 @@ namespace XBottomSheet.Droid.Behaviors
             TypedArray a = context.ObtainStyledAttributes(attrs, Resource.Styleable.AnchoredBottomSheetBehavior_Layout);
             TypedValue value = a.PeekValue(Resource.Styleable.AnchoredBottomSheetBehavior_Layout_peekHeight);
 
-            if(value != null && value.Data == PEEK_HEIGHT_AUTO)
-                PeekHeight = value.Data;
+            if(value != null && value.Data != PEEK_HEIGHT_AUTO)
+                PeekHeight = a.GetDimensionPixelSize(Resource.Styleable.AnchoredBottomSheetBehavior_Layout_peekHeight, value.Data);
             else
                 PeekHeight = a.GetDimensionPixelSize(Resource.Styleable.AnchoredBottomSheetBehavior_Layout_peekHeight, PEEK_HEIGHT_AUTO);
 
