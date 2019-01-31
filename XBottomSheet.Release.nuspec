@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata minClientVersion="">
     <id>XBottomSheet</id>
-    <version>1.0.2-beta</version>
+    <version>1.0.3</version>
     <title>XBottomSheet</title>
     <authors>Grendio</authors>
     <owners>Grendio</owners>
