@@ -121,11 +121,19 @@ namespace XBottomSheet.Touch.Views
             var translation = recognizer.TranslationInView(View);
             var location = recognizer.LocationInView(View.Superview);
             var y = View.Frame.GetMinY();
-            View.Frame = new CGRect(0, y + translation.Y, View.Frame.Width, View.Frame.Height);
-            recognizer.SetTranslation(CGPoint.Empty, View);
 
             var velocity = recognizer.VelocityInView(View);
             if ((y + translation.Y >= top) & (y + translation.Y <= middle))
+            {
+                View.Frame = new CGRect(0, y + translation.Y, View.Frame.Width, View.Frame.Height);
+                recognizer.SetTranslation(CGPoint.Empty, View);
+            }
+            else if (y <= top)
+            {
+                // Disable the posibility to lift the view from the bottom of the screen
+                return;
+            }
+            else
             {
                 View.Frame = new CGRect(0, y + translation.Y, View.Frame.Width, View.Frame.Height);
                 recognizer.SetTranslation(CGPoint.Empty, View);
