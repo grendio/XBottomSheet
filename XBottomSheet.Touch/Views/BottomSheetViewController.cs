@@ -15,6 +15,14 @@ namespace XBottomSheet.Touch.Views
         private BottomSheetState currentState;
         private UIView customView;
 
+        public BottomSheetState CurrentState
+        {
+            get
+            {
+                return currentState;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the duration of controller on how fast it should reach the anchor point. Default value is -2.
         /// </summary>
