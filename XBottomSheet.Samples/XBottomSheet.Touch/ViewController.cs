@@ -51,6 +51,9 @@ namespace XBottomSheet.Touch.Sample
             var customView = CustomView.Create();
             customView.Frame = View.Frame;
             bottomSheetViewController.SetCustomView(customView);
+
+            // Check what CurrentState of the BottomSheetViewController
+            var checkState = bottomSheetViewController.CurrentState;
         }
     }
 }
