@@ -12,7 +12,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>XBottomSheet.iOS</PackageId>
-    <PackageVersion>0.0.2</PackageVersion>
+    <PackageVersion>1.0.4</PackageVersion>
     <Authors>Grendio</Authors>
     <PackageIconUrl>https://avatars1.githubusercontent.com/u/45300196</PackageIconUrl>
     <PackageLicenseUrl>https://github.com/grendio/XBottomSheet/blob/master/LICENSE</PackageLicenseUrl>
@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Views\BottomSheetViewController.xib" />
+    <InterfaceDefinition Include="Views\BottomSheetContentView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Views\BottomSheetViewController.cs" />
@@ -114,6 +115,10 @@
       <DependentUpon>BottomSheetViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="BottomSheetState.cs" />
+    <Compile Include="Views\BottomSheetContentView.cs" />
+    <Compile Include="Views\BottomSheetContentView.designer.cs">
+      <DependentUpon>BottomSheetContentView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
