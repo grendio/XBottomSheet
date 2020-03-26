@@ -122,10 +122,7 @@ namespace XBottomSheet.Droid.Views
         public XBottomSheetView(Context context) : base(context) {}
         public XBottomSheetView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
-            behavior = new AnchoredBottomSheetBehavior(context, attrs)
-            {
-                Hideable = false
-            };
+            behavior = new AnchoredBottomSheetBehavior(context, attrs);
 
             contentScroller = new NestedScrollView(context);
             contentScroller.SetBackgroundColor(Color.LightGray);

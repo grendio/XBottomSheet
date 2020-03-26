@@ -4,11 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+	<Button
+		android:id="@+id/testButtonHide"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+		android:text="HIDE"
+		android:layout_centerHorizontal="true"/>
+	<Button
+		android:id="@+id/testButtonShowC"
+		android:layout_below="@+id/testButtonHide"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+		android:text="SHOW COLLAPSED"
+		android:layout_centerHorizontal="true"/>
+	<Button
+		android:id="@+id/testButtonShowA"
+		android:layout_below="@+id/testButtonShowC"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+		android:text="SHOW ANCHORED"
+		android:layout_centerHorizontal="true"/>
+	<Button
+		android:id="@+id/testButtonShowE"
+		android:layout_below="@+id/testButtonShowA"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+		android:text="SHOW EXPANDED"
+		android:layout_centerHorizontal="true"/>
 	<XBottomSheet.Droid.Views.XBottomSheetView
 		android:id="@+id/BottomSheet"
-		app:anchorOffset="320dp"
-		app:peekHeight="192dp"
-		app:defaultState="collapsed"
+		app:anchorOffset="100dp"
+		app:peekHeight="40dp"
+		app:hideable="true"
+		app:defaultState="hidden"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 	</XBottomSheet.Droid.Views.XBottomSheetView>
