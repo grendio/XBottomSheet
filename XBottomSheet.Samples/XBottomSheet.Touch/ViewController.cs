@@ -8,6 +8,7 @@ namespace XBottomSheet.Touch.Sample
     public partial class ViewController : UIViewController
     {
         BottomSheetViewController bottomSheetViewController;
+        bool viewWasSet;
 
         protected ViewController(IntPtr handle) : base(handle)
         {
@@ -23,8 +24,9 @@ namespace XBottomSheet.Touch.Sample
         private void SetupBottomSheet()
         {
             // Create BottomSheetViewController
+            var heightWhereToStart = 150;
             var bottom = UIScreen.MainScreen.Bounds.Height - UIApplication.SharedApplication.StatusBarFrame.Height;
-            bottomSheetViewController = new BottomSheetViewController(100, 300, bottom, true, BottomSheetState.Bottom);
+            bottomSheetViewController = new BottomSheetViewController(100, 300, 600, heightWhereToStart, true, BottomSheetState.Bottom);
 
             // Add BottomSheetViewController as a child view 
             AddChildViewController(bottomSheetViewController);
@@ -38,6 +40,13 @@ namespace XBottomSheet.Touch.Sample
 
             UITapGestureRecognizer tapGesture = new UITapGestureRecognizer(HandleAction);
             View.AddGestureRecognizer(tapGesture);
+
+            btTest.TouchUpInside += BtTest_TouchUpInside;
+        }
+
+        private void BtTest_TouchUpInside(object sender, EventArgs e)
+        {
+            // Just to check if the button is actually clickable
         }
 
         void HandleAction()
@@ -48,9 +57,16 @@ namespace XBottomSheet.Touch.Sample
         void BtMain_TouchUpInside(object sender, EventArgs e)
         {
             bottomSheetViewController.Show();
-            var customView = CustomView.Create();
-            customView.Frame = View.Frame;
-            bottomSheetViewController.SetCustomView(customView);
+            if (!viewWasSet)
+            {
+                var customView = CustomView.Create();
+                customView.Frame = View.Frame;
+                bottomSheetViewController.SetCustomView(customView);
+                viewWasSet = true;
+            }
+
+            // Check what CurrentState of the BottomSheetViewController
+            var checkState = bottomSheetViewController.CurrentState;
         }
     }
 }
