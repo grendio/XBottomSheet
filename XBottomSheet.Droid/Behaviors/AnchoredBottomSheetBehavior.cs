@@ -8,10 +8,10 @@ using Android.Util;
 using Android.Views;
 using System;
 using System.Collections.Generic;
-using XBottomSheet.Core.Models;
 using XBottomSheet.Droid.JavaComponents;
 using XBottomSheet.Droid.States;
 using static Android.Support.Design.Widget.BottomSheetBehavior;
+using XBottomSheet.Core.Models;
 
 namespace XBottomSheet.Droid.Behaviors
 { 
@@ -246,13 +246,13 @@ namespace XBottomSheet.Droid.Behaviors
             {
                 return;
             }
-            var oldState = this.state;
             this.state = state;
+            OnStateChanged(new StateEventArgs() { State = state });
             var bottomSheet = view;
 
             if(bottomSheet != null)
             {
-                for(int i=0;i<callbacks.Count;i++)
+                for (int i=0;i<callbacks.Count;i++)
                 {
                     callbacks[i].OnStateChanged(bottomSheet, state);
                 }

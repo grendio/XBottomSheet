@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata minClientVersion="">
     <id>XBottomSheet</id>
-    <version>1.0.3</version>
+    <version>1.0.5-beta6</version>
     <title>XBottomSheet</title>
     <authors>Grendio</authors>
     <owners>Grendio</owners>
@@ -32,6 +32,7 @@
     </frameworkAssemblies>
   </metadata>
   <files>
+    <file src="XBottomSheet.Core\bin\Release\netstandard2.1\XBottomSheet.Core.dll" target="lib\MonoAndroid10\XBottomSheet.Core.dll" />
     <file src="XBottomSheet.Droid\bin\Release\XBottomSheet.Droid.dll" target="lib\MonoAndroid10\XBottomSheet.Droid.dll" />
     <file src="XBottomSheet.Touch\bin\iPhoneSimulator\Release\XBottomSheet.Touch.dll" target="lib\Xamarin.iOS1.0\XBottomSheet.Touch.dll" />
   </files>

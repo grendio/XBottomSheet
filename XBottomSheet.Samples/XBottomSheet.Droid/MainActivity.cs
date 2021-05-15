@@ -1,6 +1,8 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.OS;
 using Android.Widget;
+using XBottomSheet.Core.Models;
 using XBottomSheet.Droid.Views;
 
 namespace XBottomSheet.Droid.Sample
@@ -24,24 +26,31 @@ namespace XBottomSheet.Droid.Sample
             expand.Click += ShowExpanded;
             hide.Click += Hide;
             anchored.Click += ShowAnchored;
+
+            sheet.AddStateChangedEvent(StateChanged);
         }
 
-        private void ShowCollapsed(object sender, System.EventArgs e)
+        private void StateChanged(object sender, EventArgs e)
+        {
+            var test = e as StateEventArgs;
+        }
+
+        private void ShowCollapsed(object sender, EventArgs e)
         {
             var sheet = FindViewById<XBottomSheetView>(Resource.Id.BottomSheet);
             sheet.State = "4";
         }
-        private void ShowExpanded(object sender, System.EventArgs e)
+        private void ShowExpanded(object sender, EventArgs e)
         {
             var sheet = FindViewById<XBottomSheetView>(Resource.Id.BottomSheet);
             sheet.State = "3";
         }
-        private void ShowAnchored(object sender, System.EventArgs e)
+        private void ShowAnchored(object sender, EventArgs e)
         {
             var sheet = FindViewById<XBottomSheetView>(Resource.Id.BottomSheet);
             sheet.State = "6";
         }
-        private void Hide(object sender, System.EventArgs e)
+        private void Hide(object sender, EventArgs e)
         {
             var sheet = FindViewById<XBottomSheetView>(Resource.Id.BottomSheet);
             sheet.State = "5";
