@@ -8,6 +8,7 @@ using Android.Util;
 using Android.Views;
 using System;
 using System.Collections.Generic;
+using XBottomSheet.Core.Models;
 using XBottomSheet.Droid.JavaComponents;
 using XBottomSheet.Droid.States;
 using static Android.Support.Design.Widget.BottomSheetBehavior;
@@ -16,6 +17,7 @@ namespace XBottomSheet.Droid.Behaviors
 { 
     public sealed class AnchoredBottomSheetBehavior : CoordinatorLayout.Behavior
     {
+        // TODO move this to the Core project
         public const int DRAGGING_STATE = 1;
         public const int SETTLING_STATE = 2;
         public const int EXPANDED_STATE = 3;
@@ -71,6 +73,7 @@ namespace XBottomSheet.Droid.Behaviors
                 }
                 var parent = (view as View).Parent;
                 state = value;
+                OnStateChanged(new StateEventArgs() { State = state } );
 
                 if (parent != null && parent.IsLayoutRequested && ViewCompat.IsAttachedToWindow((View)view))
                 {
@@ -745,6 +748,13 @@ namespace XBottomSheet.Droid.Behaviors
                 return false;
             }
             return target == nestedScrollingChild && (state != EXPANDED_STATE || base.OnNestedPreFling(coordinatorLayout, child, target, velocityX, velocityY));
+        }
+
+        public event EventHandler StateChanged;
+        public void OnStateChanged(StateEventArgs e)
+        {
+            var handler = StateChanged;
+            StateChanged?.Invoke(this, e);
         }
 
         internal sealed class DragCallback : ViewDragHelper.Callback

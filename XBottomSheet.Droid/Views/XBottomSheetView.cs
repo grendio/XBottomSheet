@@ -120,16 +120,25 @@ namespace XBottomSheet.Droid.Views
 
         #region Constructors
         public XBottomSheetView(Context context) : base(context) {}
+
         public XBottomSheetView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
             behavior = new AnchoredBottomSheetBehavior(context, attrs);
+            
 
             contentScroller = new NestedScrollView(context);
             contentScroller.SetBackgroundColor(Color.LightGray);
             ContentView = new FrameLayout(context);
         }
+
         public XBottomSheetView(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr) {}
+
         protected XBottomSheetView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) {}
         #endregion
+
+        public void AddStateChangedEvent(EventHandler onStateChanged)
+        {
+            behavior.StateChanged += onStateChanged;
+        }
     }
 }

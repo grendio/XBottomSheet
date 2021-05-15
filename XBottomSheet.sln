@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Touch.MSample"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Core.MSample", "MvvmCross\XBottomSheet.Core.MSample\XBottomSheet.Core.MSample.csproj", "{B07DE08C-7E1A-4D65-9516-FAFBEBAA978D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBottomSheet.Core", "XBottomSheet.Core\XBottomSheet.Core.csproj", "{6CDCE349-581C-458A-A788-FD8D0A98D919}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,18 @@ Global
 		{B07DE08C-7E1A-4D65-9516-FAFBEBAA978D}.Release|iPhone.Build.0 = Release|Any CPU
 		{B07DE08C-7E1A-4D65-9516-FAFBEBAA978D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{B07DE08C-7E1A-4D65-9516-FAFBEBAA978D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Release|iPhone.Build.0 = Release|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{6CDCE349-581C-458A-A788-FD8D0A98D919}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
